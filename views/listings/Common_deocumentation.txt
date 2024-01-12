@@ -1,0 +1,12 @@
+
+-->This documentation page is only for views-->listing folders
+
+-->mt means marigintop
+-->col-8 refers for number of columns in a single row
+-->offset represing the margin-left value
+-->listing_[] saves the names in object and we can access it using the listing_[]
+-->The form is declared with novalidate:It removes the browsers default errors
+-->Needs validations defines the form should be validated using bootstrap
+-->Each input should contain label with class name form-label
+-->Every inputlabel contains a unique class called form-control and a keyword "required"->defines the field should not be empty
+-->There  are two class valid-feedback and invalid-feedback 

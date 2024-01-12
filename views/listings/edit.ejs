@@ -1,0 +1,91 @@
+<%- layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-3">      
+        <!-- Declaring the row -->
+        <!-- With margin top : 3px -->
+        <div class="col-8 offset-2">
+                <!-- col-8 refers for number of columns in a single row -->
+                <!-- offset represing the margin-left value -->
+            <h3>Edit your list </h3>
+            <!-- listing_[] saves the names in object and we can access it using the listing_[] -->
+            <br><br>
+            <!-- The form is declared with novalidate:It removes the browsers default errors -->
+            <!-- Needs validations defines the form should be validated using bootstrap -->
+            <!-- Ecah input should contain label with class name form-label -->
+            <!-- Every inputlabel contains a unique class called form-control and a keyword "required"
+                ->defines the field should not be empty -->
+                <!-- There  are two class valid-feedback and invalid-feedback  -->
+            <form method="POST" action="/listings/<%= listing_._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <!-- mb refers to margin bottom -->
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing_[title]" 
+                    value="<%=listing_.title%>" 
+                    type="text" 
+                    class="form-control" 
+                    required >
+                    <div class="valid-feedback">Title looks good.</div>
+                </div>
+                <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing_[description]" 
+                type="text" 
+                class="form-control" 
+                required 
+                ><%=listing_.description%></textarea>
+                <div class="invalid-feedback">Please enter a short description.</div>
+            </div>
+
+            <div class="mb-3">
+                Original Listing image <br>
+                <img src="<%= originalImageUrl %>" alt="">
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload New Image</label>
+                <input name="listing_[image]"  
+                type="file" 
+                class="form-control"  
+                >
+
+            </div>
+            <div class="row">
+                
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input name="listing_[price]" 
+                    value="<%=listing_.price%>" 
+                    type="number" 
+                    class="form-control" 
+                    required 
+                    >
+                    <div class="invalid-feedback">Price should be valid.</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input name="listing_[country]" 
+                    value="<%=listing_.country%>" 
+                    type="text" 
+                    class="form-control"
+                    required
+                    >
+                    <div class="invalid-feedback">Country should be valid</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing_[location]" 
+                value="<%=listing_.location%>" 
+                type="text" 
+                class="form-control"
+                required 
+                >
+                <div class="invalid-feedback">Location should be valid</div>
+            </div>
+        <br>
+        <button class="btn btn-dark edit-btn mt-3">Save</button>
+        <br><br>
+    </div>
+    </div>
+</form>
+</body>

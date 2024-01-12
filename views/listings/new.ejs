@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2"> 
+            <!-- Occupied 8 columns (bootstrap) -->
+            <!-- offset is a part of the grid system useful for
+                 making space in the column on the left side -->
+            <h3>Create a new list </h3>
+            
+            <!-- listing[] saves the names in dictionary and we can access it using the listing[] -->
+            <br>
+            <!-- By declaring enctype the form can send filetype data to backend -->
+            <form 
+            method="POST"
+             action="/listings"
+              novalidate
+              class="needs-validation"
+               enctype="multipart/form-data">       
+
+                <!--  mb-3 means margin bottom 3px given using bootstrap-->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing_[title]" 
+                    placeholder="Enter title" 
+                    type="text" 
+                    class="form-control" 
+                    required>
+                    <!-- validation feedback will be shown here -->
+                    <div class="valid-feedback">Title looks cool!!</div>
+                    <div class="invalid-feedback">Please enter a valid title.</div>
+                </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing_[description]" 
+                class="form-control" 
+                required
+                ></textarea>
+            <div class="invalid-feedback">Please enter a short description.</div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                <input name="listing_[image]" 
+                type="file" 
+                class="form-control" required>
+            </div>
+            <div class="row">
+            <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input name="listing_[price]" 
+            placeholder="1200" 
+            class="form-control" 
+            required>
+            <div class="invalid-feedback">Price should be valid.</div>
+        </div>
+        <div class="mb-3 col-md-8" >  
+            
+            <label for="country" class="form-label">Country</label>
+            <input name="listing_[country]" 
+            placeholder="India" 
+            type="text" 
+            class="form-control" 
+            required>
+            <div class="invalid-feedback">Country should be valid.</div>
+        </div>
+    </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input name="listing_[location]" 
+            placeholder="Hyderabad,Bengaluru " 
+            type="text" 
+            class="form-control" 
+            required>
+            <div class="invalid-feedback">Location should be valid.</div>
+        </div>
+        <button class="btn btn-dark add-btn">Add</button>
+        <br><br>
+    </form>
+</div>
+</div>
+</body>
