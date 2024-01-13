@@ -1,6 +1,6 @@
 if(process.env.NODE_ENV != "production")        //We are not going to use the .env file in the production because it contains confidential data
 {
-    require('dotenv').config()
+    require('dotenv').config()      //dotenv is an extension used for retriving the data from .env file without using the file
 }
 
 //packages
@@ -24,7 +24,7 @@ const User = require("./models/user.js")
 const listingsRouter = require("./routes/listing.js");    //For normal routes
 const reviewsRouter = require("./routes/review.js");  //For review routes
 const userRouter = require("./routes/user.js"); 
-const dbUrl = process.env.ATLASDB_URL
+const dbUrl = process.env.ATLASDB_URL       //url is taken from atlas website(databse url)
 
 //middlewares and some values assigning
 app.use(express.static(path.join(__dirname, "/public")));       //To join static files like css and js
@@ -44,17 +44,17 @@ async function main()
     await mongoose.connect(dbUrl);       //port number and db name for connecting express with DB
 }
 
-const store = MongoStore.create({
+const store = MongoStore.create({       //Used to restore data from db
     mongoUrl: dbUrl,
     crypto: {
         secret: process.env.SECRET,
     },
-    touchAfter: 24*3600,
+    touchAfter: 24*3600,        //For every 24hrs the data loads from the db
 });
 
 store.on("error",()=>
 {
-    console.log("Error in MONGO session store",err)
+    console.log("Error in MONGO session store",err)     
 })
 
 const sessionOptions = {
