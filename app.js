@@ -108,5 +108,5 @@ app.use((err,req,res,next)=>        //Common middleware for all paths and used t
 
 app.listen(8080,()=>
 {
-    console.log("Listening from port 8080");
+    console.log("Listening from port 8080");        //For listening
 });
