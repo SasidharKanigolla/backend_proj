@@ -1,7 +1,7 @@
 <!-- For success flashes the below conditions must be satisfied their should any array names success and its length must be greater than 0 -->
 <% if(success && success.length) { %>
     <!-- Bootstrap class contains alert that has green bgcolor with crossmark on it's end -->
-    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+    <div class="alert alert-success alert-dismissible fade show col-lg-6 col-md-10 offset-md-1 offset-lg-3" role="alert">
         <!-- Displaying the message initialized in the middleware -->
         <%= success %>      
         <button 
@@ -15,7 +15,7 @@
     <!-- For error flashes the below conditions must be satisfied their should any array names success and its length must be greater than 0 -->
     <% if(error && error.length) { %>
         <!-- Bootstrap class contains alert that has red bgcolor with crossmark on it's end -->
-        <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <div class="alert alert-success alert-dismissible fade show col-lg-6 col-md-10 offset-md-1 offset-lg-3" role="alert">
         <!-- Displaying the message initialized in the middleware -->
             <%= error %>
             <button 
